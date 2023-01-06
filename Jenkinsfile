@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Tag Module Release') {
             when {
-                branch 'master'
+                branch 'main'
             }
             steps {
                 withCredentials([usernamePassword(credentialsId: 'GitHub_Jenkins-GCP', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
@@ -42,7 +42,7 @@ pipeline {
                      description: 'All tests passed',
                      targetUrl: "${env.BUILD_URL}/display/redirect")
 
-                    // Attempt to auto-merge this PR into master unless the 'no-merge' label exists to indicate otherwise.
+                    // Attempt to auto-merge this PR into main unless the 'no-merge' label exists to indicate otherwise.
                     if (! pullRequest.labels.contains("no-merge")) {
                         echo "No-merge label absent; attempting auto-merge."
 
