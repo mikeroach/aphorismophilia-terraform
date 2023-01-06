@@ -69,7 +69,7 @@ resource "kubernetes_deployment" "aphorismophilia" {
           image_pull_policy = "Always"
 
           resources {
-            requests {
+            requests = {
               cpu    = "100m"
               memory = "30Mi"
             }
