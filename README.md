@@ -12,6 +12,6 @@ Currently this pseudo-Terraservice's pipeline simply performs rudimentary Terraf
 
 1. IaC engineer develops and tests locally in feature branch.
 1. IaC engineer commits feature branch and submits pull request.
-1. Jenkins examines pull request, runs validation tests, and merges into master upon success.
-1. Jenkins repeats validation tests against master branch and tags new release upon success.
+1. Jenkins examines pull request, runs validation tests, and merges into `main` upon success.
+1. Jenkins repeats validation tests against `main` branch and tags new release upon success.
 1. Stack and template owners update their ephemeral environment definitions and templates with new version tag.
