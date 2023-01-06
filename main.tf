@@ -105,7 +105,7 @@ resource "kubernetes_service" "aphorismophilia-service" {
   }
 }
 
-resource "kubernetes_ingress" "aphorismophilia-ingress" {
+resource "kubernetes_ingress_v1" "aphorismophilia-ingress" {
   metadata {
     name      = "aphorismophilia-ingress"
     namespace = var.service_aphorismophilia_namespace
@@ -119,8 +119,12 @@ resource "kubernetes_ingress" "aphorismophilia-ingress" {
       http {
         path {
           backend {
-            service_name = "aphorismophilia-service"
-            service_port = "8888"
+            service {
+              name = "aphorismophilia-service"
+              port {
+                number = 8888
+              }
+            }
           }
         }
       }
